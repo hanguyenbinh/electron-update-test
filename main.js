@@ -10,7 +10,6 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    show: false,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -20,13 +19,7 @@ function createWindow () {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-  mainWindow.once('ready-to-show', () => {
-    log.info('checkforupdate')
-    autoUpdater.checkForUpdatesAndNotify();
-  });
-  mainWindow.once('restart_app', () => {
-    log.info('restart_app')
-  });
+  autoUpdater.checkForUpdatesAndNotify();
 }
 
 app.on('ready', () => {
