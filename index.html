@@ -28,12 +28,12 @@
 <body>
   <h1>Electron Auto Update Example</h1>
   <p id="version"></p>
-  <div id="notification">
+  <div id="notification" class="hidden">
     <p id="message"></p>
     <button id="close-button" onClick="closeNotification()">
       Close
     </button>
-    <button id="restart-button" onClick="restartApp()">
+    <button id="restart-button" onClick="restartApp()" class="hidden">
       Restart
     </button>
   </div>
@@ -64,11 +64,11 @@
     });
 
     function closeNotification() {
-      // notification.classList.add('hidden');
+      notification.classList.add('hidden');
     }
     
     function restartApp() {
-      ipcRenderer.send('ready-to-show');
+      ipcRenderer.send('restart_app');
     }
   </script>
 </body>
