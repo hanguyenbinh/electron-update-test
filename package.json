@@ -1,11 +1,19 @@
 {
   "name": "electron-auto-update-example",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "hello",
   "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hanguyenbinh/electron-update-test.git"
+  "build": {
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://127.0.0.1:8080/"
+      }
+    ],
+    "appId": "com.github.iffy.electronupdatergenericexample",    
+    "nsis": {
+      "perMachine": true
+    }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
